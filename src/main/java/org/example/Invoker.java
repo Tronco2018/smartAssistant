@@ -24,6 +24,9 @@ public class Invoker {
                 System.out.println("[INFO]:WIP command");
                 Logger.log("[INFO]:WIP command");
                 break;
+            case "help":
+                HelpCommand.execute();
+                break;
         }
     }
 }

@@ -28,7 +28,7 @@ public class Logger {
                 return;
             }
             FileWriter fw = new FileWriter(file, true);
-            fw.write(content + System.lineSeparator());
+            fw.write(content + System.lineSeparator()); //Appending to log the message
             fw.close();
         } catch (IOException e){
             System.out.println("{Logger}[FAILED]:Failed to access log file");

@@ -14,13 +14,13 @@ public class VolumeCommand implements Command{
         }
         switch (args[1]){
             case "set":
-                try {
+                try { //Using pactl or amixer to set the volume
                     Runtime.getRuntime().exec("pactl set-sink-volume @DEFAULT_SINK@ " + args[2] + "%");
                     System.out.println("[OK]:Successfully set volume to " + args[2] + "%");
                     Logger.log("[OK]:Successfully set volume to " + args[2] + "%");
                 } catch (IOException e){
                     try {
-                        Runtime.getRuntime().exec("amixer sset Master " + args[2] + "%");
+                        Runtime.getRuntime().exec("amixer set Master " + args[2] + "%");
                         System.out.println("[OK]:Successfully set volume to " + args[2] + "%");
                         Logger.log("[OK]:Successfully set volume to " + args[2] + "%");
                     } catch (IOException ee) {

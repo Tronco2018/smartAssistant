@@ -11,7 +11,8 @@ public class ExecuteCommand implements Command{
             Logger.log("[ERROR]:You're missing an argument!\nUsage: execute <program>");
         }
         try {
-            Runtime.getRuntime().exec(args[1]);
+            //TODO: Use process builder instead
+            Runtime.getRuntime().exec(args[1]); //Running binary
             System.out.println("[OK]:Program '" + args[1] +"' started");
             Logger.log("[OK]:Program '" + args[1] +"' started");
         } catch (IOException e){

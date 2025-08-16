@@ -1,7 +1,7 @@
 package org.example;
 
 public class CommandIdentifier {
-    private static int levenshteinDistance(String s1, String s2) {
+    private static int levenshteinDistance(String s1, String s2) { //string fuzzy matching function
         int[] costs = new int[s2.length() + 1];
         for (int i = 0; i <= s1.length(); i++) {
             int lastValue = i;
@@ -27,7 +27,7 @@ public class CommandIdentifier {
     public static String recognizeCommand(String input, String[] commands, int maxDistance) {
         String bestMatch = null;
         int bestDistance = Integer.MAX_VALUE;
-        for (String cmd : commands) {
+        for (String cmd : commands) { //Finds best-matching string
             int dist = levenshteinDistance(input.toLowerCase(), cmd.toLowerCase());
             if (dist < bestDistance && dist <= maxDistance) {
                 bestDistance = dist;
